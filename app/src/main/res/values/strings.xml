@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Git Explorer</string>
+    <string name="git_command_explorer"><![CDATA[<font color="#000000"><b>Git </b></font><font color="#08BFA9"><b>Command </b></font><font color="#000000"><b>Explorer</b></font>]]></string>
+</resources>
