@@ -1,5 +1,6 @@
 package com.shashank.platform.gitexplorer
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.text.Html
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     private var usage = ""
     private var note = ""
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dataBind = DataBindingUtil.setContentView(this, R.layout.activity_main)
