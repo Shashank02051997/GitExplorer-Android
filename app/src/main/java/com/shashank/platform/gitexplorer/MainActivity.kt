@@ -49,8 +49,6 @@ class MainActivity : AppCompatActivity() {
         }
         dataBind.inputSecondField.setOnItemClickListener { adapterView, view, i, l ->
             dismissKeyboard(dataBind.inputFirstField)
-            dataBind.textNote.visibility = View.VISIBLE
-            dataBind.cardViewNote.visibility = View.VISIBLE
             when (dataBind.inputFirstField.text.toString()) {
                 firstField[0] -> {
                     when (dataBind.inputSecondField.text.toString()) {
@@ -60,16 +58,47 @@ class MainActivity : AppCompatActivity() {
                                 "To add all the files in the current directory, use \"git add .\"\n To add a directory use \"git add <directory>\""
                         }
                         secondField[1] -> {
-                            usage = ""
+                            usage = "git remote add <shortname> <url>"
                             note = ""
                         }
                         secondField[2] -> {
-                            usage = ""
+                            usage = "git config --global alias.<alias> <command>"
+                            note =
+                                "e.g. git config --global alias.st status. Typing git st in the terminal now does the same thing as git status"
+                        }
+                        secondField[3] -> {
+                            usage = "git tag -a v1.4 -m \"my version 1.4\"\ngit push --tags"
+                            note = ""
+                        }
+                        secondField[3] -> {
+                            usage =
+                                "git tag -a v1.2 -m 'version 1.2' <commit-hash>\ngit push --tags"
                             note = ""
                         }
                     }
                 }
                 firstField[1] -> {
+                    when (dataBind.inputSecondField.text.toString()) {
+                        secondField[0] -> {
+                            usage = "git clone <repo-url> <directory>"
+                            note =
+                                "The repo is cloned into the specified directory\nReplace \"directory\" with the directory you want"
+                        }
+                        secondField[1] -> {
+                            usage = "git clone <repo-url> ."
+                            note = "The repo is cloned into the current directory\nThe current directory is represented with a \".\" (period)"
+                        }
+                        secondField[2] -> {
+                            usage = "git clone --recurse-submodules <repo-url> ."
+                            note = "If git version is under 2.13, use --recursive option instead."
+                        }
+                        secondField[3] -> {
+                            usage = "git submodule update --init --recursive\n"
+                            note = ""
+                        }
+                    }
+                }
+                /*firstField[2] -> {
                     when (dataBind.inputSecondField.text.toString()) {
                         secondField[0] -> {
                             usage = ""
@@ -84,9 +113,43 @@ class MainActivity : AppCompatActivity() {
                             note = ""
                         }
                     }
-                }
+                }*/
+                /*firstField[3] -> {
+                    when (dataBind.inputSecondField.text.toString()) {
+                        secondField[0] -> {
+                            usage = ""
+                            note = ""
+                        }
+                        secondField[1] -> {
+                            usage = ""
+                            note = ""
+                        }
+                        secondField[2] -> {
+                            usage = ""
+                            note = ""
+                        }
+                    }
+                }*/
+                /*firstField[4] -> {
+                    when (dataBind.inputSecondField.text.toString()) {
+                        secondField[0] -> {
+                            usage = ""
+                            note = ""
+                        }
+                        secondField[1] -> {
+                            usage = ""
+                            note = ""
+                        }
+                        secondField[2] -> {
+                            usage = ""
+                            note = ""
+                        }
+                    }
+                }*/
 
             }
+            dataBind.textNote.visibility = if (note == "") View.GONE else View.VISIBLE
+            dataBind.cardViewNote.visibility = if (note == "") View.GONE else View.VISIBLE
             dataBind.textDisplayGitCommand.text = usage
             dataBind.textDisplayNote.text = note
 
@@ -96,8 +159,6 @@ class MainActivity : AppCompatActivity() {
     private fun addFirstFieldData() {
         firstField.add("add")
         firstField.add("clone")
-        firstField.add("commit")
-        firstField.add("compare two commits")
     }
 
     private fun addSecondFieldData() {
@@ -105,13 +166,16 @@ class MainActivity : AppCompatActivity() {
         when (dataBind.inputFirstField.text.toString()) {
             firstField[0] -> {
                 secondField.add("new changes")
-                secondField.add("a new branch")
                 secondField.add("new remote repo")
+                secondField.add("alias")
+                secondField.add("annotated tag")
+                secondField.add("annotated tag for old commit")
             }
             firstField[1] -> {
                 secondField.add("existing repo into a new directory")
                 secondField.add("existing repo into the current directory")
                 secondField.add("existing repo along with submodules into the current directory")
+                secondField.add("submodules after cloning existing repo")
             }
         }
         val adapter = ArrayAdapter(
@@ -121,7 +185,7 @@ class MainActivity : AppCompatActivity() {
         dataBind.inputSecondField.setAdapter(adapter)
     }
 
-    fun Context.dismissKeyboard(view: View?) {
+    private fun Context.dismissKeyboard(view: View?) {
         view?.let {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(it.windowToken, 0)
