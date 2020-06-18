@@ -38,6 +38,11 @@ The app in itself is a simple git command's searching app. Selecting command fro
 
 <img src="https://github.com/Shashank02051997/GitExplorer-Android/blob/master/Screenshots/Screenshot_20200619-011005.png" height="600" width="300" hspace="40"><img src="https://github.com/Shashank02051997/GitExplorer-Android/blob/master/Screenshots/Screenshot_20200619-011028.png" height="600" width="300" hspace="40">
 
+## Inspiration
+
+This project is inspired from GitExplorer ~ Thanks to them.
+
+  [GitExplorer](https://github.com/summitech/gitexplorer)
 
 ## Contributing
 
