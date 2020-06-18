@@ -9,12 +9,15 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.shashank.platform.gitexplorer.databinding.ActivityMainBinding
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var dataBind: ActivityMainBinding
-    private var firstField = mutableListOf<String>()
-    private var secondField = mutableListOf<String>()
+    private var primaryOptions = ArrayList<PrimaryOptions>()
+    private var primaryOptionsValue = ""
+    private var secondaryOptions = ArrayList<SecondaryOptions>()
+    private lateinit var jsonFileObject: JSONObject
     private var usage = ""
     private var note = ""
 
@@ -23,12 +26,8 @@ class MainActivity : AppCompatActivity() {
         dataBind = DataBindingUtil.setContentView(this, R.layout.activity_main)
         dataBind.textGitCommand.text =
             Html.fromHtml(resources.getString(R.string.git_command_explorer))
-        addFirstFieldData()
-        val adapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_list_item_1, firstField
-        )
-        dataBind.inputFirstField.setAdapter(adapter)
+        jsonFileObject = JSONObject(loadJSONFromAsset())
+        getPrimaryOptions()
         dataBind.inputFirstField.setOnTouchListener { p0, p1 ->
             dataBind.inputFirstField.showDropDown()
             false
@@ -38,6 +37,9 @@ class MainActivity : AppCompatActivity() {
             false
         }
         dataBind.inputFirstField.setOnItemClickListener { adapterView, view, pos, l ->
+            primaryOptionsValue = primaryOptions.find {
+                it.label == dataBind.inputFirstField.text.toString()
+            }?.value!!
             dismissKeyboard(dataBind.inputFirstField)
             dataBind.cardViewSecondField.visibility = View.VISIBLE
             dataBind.textNote.visibility = View.GONE
@@ -45,110 +47,16 @@ class MainActivity : AppCompatActivity() {
             dataBind.inputSecondField.text.clear()
             dataBind.textDisplayGitCommand.text = ""
             dataBind.textDisplayNote.text = ""
-            addSecondFieldData()
+            getSecondaryOptions()
         }
         dataBind.inputSecondField.setOnItemClickListener { adapterView, view, i, l ->
             dismissKeyboard(dataBind.inputFirstField)
-            when (dataBind.inputFirstField.text.toString()) {
-                firstField[0] -> {
-                    when (dataBind.inputSecondField.text.toString()) {
-                        secondField[0] -> {
-                            usage = "git add <file.ext>"
-                            note =
-                                "To add all the files in the current directory, use \"git add .\"\n To add a directory use \"git add <directory>\""
-                        }
-                        secondField[1] -> {
-                            usage = "git remote add <shortname> <url>"
-                            note = ""
-                        }
-                        secondField[2] -> {
-                            usage = "git config --global alias.<alias> <command>"
-                            note =
-                                "e.g. git config --global alias.st status. Typing git st in the terminal now does the same thing as git status"
-                        }
-                        secondField[3] -> {
-                            usage = "git tag -a v1.4 -m \"my version 1.4\"\ngit push --tags"
-                            note = ""
-                        }
-                        secondField[3] -> {
-                            usage =
-                                "git tag -a v1.2 -m 'version 1.2' <commit-hash>\ngit push --tags"
-                            note = ""
-                        }
-                    }
-                }
-                firstField[1] -> {
-                    when (dataBind.inputSecondField.text.toString()) {
-                        secondField[0] -> {
-                            usage = "git clone <repo-url> <directory>"
-                            note =
-                                "The repo is cloned into the specified directory\nReplace \"directory\" with the directory you want"
-                        }
-                        secondField[1] -> {
-                            usage = "git clone <repo-url> ."
-                            note =
-                                "The repo is cloned into the current directory\nThe current directory is represented with a \".\" (period)"
-                        }
-                        secondField[2] -> {
-                            usage = "git clone --recurse-submodules <repo-url> ."
-                            note = "If git version is under 2.13, use --recursive option instead."
-                        }
-                        secondField[3] -> {
-                            usage = "git submodule update --init --recursive\n"
-                            note = ""
-                        }
-                    }
-                }
-                /*firstField[2] -> {
-                    when (dataBind.inputSecondField.text.toString()) {
-                        secondField[0] -> {
-                            usage = ""
-                            note = ""
-                        }
-                        secondField[1] -> {
-                            usage = ""
-                            note = ""
-                        }
-                        secondField[2] -> {
-                            usage = ""
-                            note = ""
-                        }
-                    }
-                }*/
-                /*firstField[3] -> {
-                    when (dataBind.inputSecondField.text.toString()) {
-                        secondField[0] -> {
-                            usage = ""
-                            note = ""
-                        }
-                        secondField[1] -> {
-                            usage = ""
-                            note = ""
-                        }
-                        secondField[2] -> {
-                            usage = ""
-                            note = ""
-                        }
-                    }
-                }*/
-                /*firstField[4] -> {
-                    when (dataBind.inputSecondField.text.toString()) {
-                        secondField[0] -> {
-                            usage = ""
-                            note = ""
-                        }
-                        secondField[1] -> {
-                            usage = ""
-                            note = ""
-                        }
-                        secondField[2] -> {
-                            usage = ""
-                            note = ""
-                        }
-                    }
-                }*/
-
-            }
+            usage = secondaryOptions.find {
+                it.label == dataBind.inputSecondField.text.toString()
+            }?.usage!!
+            note = secondaryOptions.find {
+                it.label == dataBind.inputSecondField.text.toString()
+            }?.nb!!
             dataBind.textNote.visibility = if (note == "") View.GONE else View.VISIBLE
             dataBind.cardViewNote.visibility = if (note == "") View.GONE else View.VISIBLE
             dataBind.textDisplayGitCommand.text = usage
@@ -157,31 +65,45 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun addFirstFieldData() {
-        firstField.add("add")
-        firstField.add("clone")
-    }
 
-    private fun addSecondFieldData() {
-        secondField.clear()
-        when (dataBind.inputFirstField.text.toString()) {
-            firstField[0] -> {
-                secondField.add("new changes")
-                secondField.add("new remote repo")
-                secondField.add("alias")
-                secondField.add("annotated tag")
-                secondField.add("annotated tag for old commit")
-            }
-            firstField[1] -> {
-                secondField.add("existing repo into a new directory")
-                secondField.add("existing repo into the current directory")
-                secondField.add("existing repo along with submodules into the current directory")
-                secondField.add("submodules after cloning existing repo")
-            }
+    private fun getPrimaryOptions() {
+        val jsonPrimaryOptionsArray = jsonFileObject.getJSONArray("primary_options")
+        for (i in 0 until jsonPrimaryOptionsArray.length()) {
+            val jsonObject = jsonPrimaryOptionsArray.getJSONObject(i)
+            val primary = PrimaryOptions()
+            primary.value = jsonObject.getString("value")
+            primary.label = jsonObject.getString("label")
+            primaryOptions.add(primary)
         }
         val adapter = ArrayAdapter(
             this,
-            android.R.layout.simple_list_item_1, secondField
+            android.R.layout.simple_list_item_1, primaryOptions.map {
+                it.label
+            }
+        )
+        dataBind.inputFirstField.setAdapter(adapter)
+    }
+
+    private fun getSecondaryOptions() {
+        secondaryOptions.clear()
+        val jsonSecondaryOptionsObject = jsonFileObject.getJSONObject("secondary_options")
+        val jsonArray = jsonSecondaryOptionsObject.getJSONArray(primaryOptionsValue)
+        for (i in 0 until jsonArray.length()) {
+            val jsonObject = jsonArray.getJSONObject(i)
+            val secondary = SecondaryOptions()
+            secondary.value = jsonObject.getString("value")
+            secondary.label = jsonObject.getString("label")
+            if (jsonObject.has("usage"))
+                secondary.usage = jsonObject.getString("usage")
+            if (jsonObject.has("nb"))
+                secondary.nb = jsonObject.getString("nb")
+            secondaryOptions.add(secondary)
+        }
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_list_item_1, secondaryOptions.map {
+                it.label
+            }
         )
         dataBind.inputSecondField.setAdapter(adapter)
     }
@@ -190,6 +112,12 @@ class MainActivity : AppCompatActivity() {
         view?.let {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(it.windowToken, 0)
+        }
+    }
+
+    private fun loadJSONFromAsset(): String {
+        return assets.open("git_command_explorer.json").bufferedReader().use {
+            it.readText()
         }
     }
 }
