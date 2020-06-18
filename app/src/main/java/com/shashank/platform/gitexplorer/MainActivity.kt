@@ -13,6 +13,16 @@ import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        const val PRIMARY_OPTIONS = "primary_options"
+        const val SECONDARY_OPTIONS = "secondary_options"
+        const val LABEL = "label"
+        const val VALUE = "value"
+        const val USAGE = "usage"
+        const val NB = "nb"
+        const val FILENAME = "git_command_explorer.json"
+    }
+
     private lateinit var dataBind: ActivityMainBinding
     private var primaryOptions = ArrayList<PrimaryOptions>()
     private var primaryOptionsValue = ""
@@ -67,12 +77,12 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun getPrimaryOptions() {
-        val jsonPrimaryOptionsArray = jsonFileObject.getJSONArray("primary_options")
+        val jsonPrimaryOptionsArray = jsonFileObject.getJSONArray(PRIMARY_OPTIONS)
         for (i in 0 until jsonPrimaryOptionsArray.length()) {
             val jsonObject = jsonPrimaryOptionsArray.getJSONObject(i)
             val primary = PrimaryOptions()
-            primary.value = jsonObject.getString("value")
-            primary.label = jsonObject.getString("label")
+            primary.value = jsonObject.getString(VALUE)
+            primary.label = jsonObject.getString(LABEL)
             primaryOptions.add(primary)
         }
         val adapter = ArrayAdapter(
@@ -86,17 +96,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun getSecondaryOptions() {
         secondaryOptions.clear()
-        val jsonSecondaryOptionsObject = jsonFileObject.getJSONObject("secondary_options")
+        val jsonSecondaryOptionsObject = jsonFileObject.getJSONObject(SECONDARY_OPTIONS)
         val jsonArray = jsonSecondaryOptionsObject.getJSONArray(primaryOptionsValue)
         for (i in 0 until jsonArray.length()) {
             val jsonObject = jsonArray.getJSONObject(i)
             val secondary = SecondaryOptions()
-            secondary.value = jsonObject.getString("value")
-            secondary.label = jsonObject.getString("label")
+            secondary.value = jsonObject.getString(VALUE)
+            secondary.label = jsonObject.getString(LABEL)
             if (jsonObject.has("usage"))
-                secondary.usage = jsonObject.getString("usage")
+                secondary.usage = jsonObject.getString(USAGE)
             if (jsonObject.has("nb"))
-                secondary.nb = jsonObject.getString("nb")
+                secondary.nb = jsonObject.getString(NB)
             secondaryOptions.add(secondary)
         }
         val adapter = ArrayAdapter(
@@ -116,7 +126,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadJSONFromAsset(): String {
-        return assets.open("git_command_explorer.json").bufferedReader().use {
+        return assets.open(FILENAME).bufferedReader().use {
             it.readText()
         }
     }
