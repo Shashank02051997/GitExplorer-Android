@@ -63,19 +63,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_i_want_to">
 
-                <EditText
+                <AutoCompleteTextView
                     android:id="@+id/input_first_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
+                    android:completionThreshold="1"
                     android:drawableEnd="@drawable/ic_keyboard_arrow_down"
                     android:drawableTint="#ACACAC"
                     android:fontFamily="@font/calibri"
+                    android:hint="..."
                     android:padding="12dp"
-                    android:text="add"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="add" />
 
             </androidx.cardview.widget.CardView>
 
@@ -84,25 +86,28 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:visibility="gone"
                 app:cardCornerRadius="4dp"
                 app:cardUseCompatPadding="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_view_first_field">
 
-                <EditText
+                <AutoCompleteTextView
                     android:id="@+id/input_second_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
+                    android:completionThreshold="1"
                     android:drawableEnd="@drawable/ic_keyboard_arrow_down"
                     android:drawableTint="#ACACAC"
                     android:fontFamily="@font/calibri"
+                    android:hint="..."
                     android:padding="12dp"
-                    android:text="new changes"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="new changes" />
 
             </androidx.cardview.widget.CardView>
 
@@ -114,7 +119,7 @@
                 android:fontFamily="@font/calibri"
                 android:text="Usage"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
+                android:textSize="18dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_view_second_field" />
@@ -150,10 +155,10 @@
                         android:fontFamily="@font/calibri"
                         android:lineSpacingExtra="8dp"
                         android:padding="16dp"
-                        android:text="git add file.ext"
                         android:textColor="@color/white"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:text="git add file.ext" />
 
                 </LinearLayout>
 
@@ -169,8 +174,9 @@
                 android:fontFamily="@font/calibri"
                 android:text="Note"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
+                android:textSize="18dp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_view_usage" />
 
@@ -179,6 +185,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:visibility="gone"
                 app:cardBackgroundColor="#20262C"
                 app:cardCornerRadius="8dp"
                 app:cardUseCompatPadding="true"
@@ -205,10 +212,10 @@
                         android:fontFamily="@font/calibri"
                         android:lineSpacingExtra="8dp"
                         android:padding="16dp"
-                        android:text="To add all the files in the current directory, use 'git add' . To add a directory use 'git add directory'"
                         android:textColor="@color/white"
                         android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:text="To add all the files in the current directory, use 'git add' . To add a directory use 'git add directory'" />
 
                 </LinearLayout>
 
