@@ -86,7 +86,8 @@ class MainActivity : AppCompatActivity() {
                         }
                         secondField[1] -> {
                             usage = "git clone <repo-url> ."
-                            note = "The repo is cloned into the current directory\nThe current directory is represented with a \".\" (period)"
+                            note =
+                                "The repo is cloned into the current directory\nThe current directory is represented with a \".\" (period)"
                         }
                         secondField[2] -> {
                             usage = "git clone --recurse-submodules <repo-url> ."
