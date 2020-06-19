@@ -22,11 +22,11 @@
 [![Git Explorer App](https://img.shields.io/badge/GitExplorer-APK-red.svg?style=for-the-badge&logo=android)](https://github.com/Shashank02051997/GitExplorer-Android/tree/master/apk)
 
 ## About
-The app in itself is a simple git command's searching app. Selecting command from the dropdown list gives you the usage and short description of that command.
+The app in itself is a simple git commands searching app. Selecting command from the dropdown list gives you the usage and short description of that command.
 
 
 ## Sailent Features:
-- Search the git command's.
+- Search the git commands.
 - View the usage of the git command.
 - View the short description of that git command.
 
@@ -34,10 +34,15 @@ The app in itself is a simple git command's searching app. Selecting command fro
 
 **Please click the image below to enlarge.**
 
-<img src="https://github.com/Shashank02051997/GitExplorer-Android/blob/master/Screenshots/Screenshot_20200619-002914.png" height="600" width="300" hspace="40"><img src="https://github.com/Shashank02051997/GitExplorer-Android/blob/master/Screenshots/Screenshot_20200619-002926.png" height="600" width="300" hspace="40">
+<img src="https://github.com/Shashank02051997/GitExplorer-Android/blob/master/Screenshots/Screenshot_20200619-010940.png" height="600" width="300" hspace="40"><img src="https://github.com/Shashank02051997/GitExplorer-Android/blob/master/Screenshots/Screenshot_20200619-010954.png" height="600" width="300" hspace="40">
 
-<img src="https://github.com/Shashank02051997/GitExplorer-Android/blob/master/Screenshots/Screenshot_20200619-002937.png" height="600" width="300" hspace="40"><img src="https://github.com/Shashank02051997/GitExplorer-Android/blob/master/Screenshots/Screenshot_20200619-003015.png" height="600" width="300" hspace="40">
+<img src="https://github.com/Shashank02051997/GitExplorer-Android/blob/master/Screenshots/Screenshot_20200619-011005.png" height="600" width="300" hspace="40"><img src="https://github.com/Shashank02051997/GitExplorer-Android/blob/master/Screenshots/Screenshot_20200619-011028.png" height="600" width="300" hspace="40">
 
+## Inspiration
+
+This project is inspired from GitExplorer ~ Thanks to them.
+
+  [GitExplorer](https://github.com/summitech/gitexplorer)
 
 ## Contributing
 
