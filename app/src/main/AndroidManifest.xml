@@ -10,8 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar1">
         <activity
-            android:name=".SplashScreen"
-            android:label="">
+            android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +19,6 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label=""
             android:windowSoftInputMode="stateHidden" />
 
     </application>
