@@ -22,11 +22,11 @@
 [![Git Explorer App](https://img.shields.io/badge/GitExplorer-APK-red.svg?style=for-the-badge&logo=android)](https://github.com/Shashank02051997/GitExplorer-Android/tree/master/apk)
 
 ## About
-The app in itself is a simple git command's searching app. Selecting command from the dropdown list gives you the usage and short description of that command.
+The app in itself is a simple git commands searching app. Selecting command from the dropdown list gives you the usage and short description of that command.
 
 
 ## Sailent Features:
-- Search the git command's.
+- Search the git commands.
 - View the usage of the git command.
 - View the short description of that git command.
 
