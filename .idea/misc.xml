@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/vinay/StudioProjects/GitExplorer-Android/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/vinay/StudioProjects/GitExplorer-Android/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2824074074074074" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.2824074074074074" />
       </map>
@@ -26,7 +28,7 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
