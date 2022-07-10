@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/vinay/StudioProjects/GitExplorer-Android/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/vinay/StudioProjects/GitExplorer-Android/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2824074074074074" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.2824074074074074" />
       </map>
