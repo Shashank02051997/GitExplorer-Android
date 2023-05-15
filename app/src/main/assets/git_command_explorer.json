@@ -330,7 +330,8 @@
       },
       {
         "value": "add-new-branch",
-        "label": "a new branch"
+        "label": "a new branch",
+        "usage": "git branch <branch-name>"
       },
       {
         "value": "add-repo",
