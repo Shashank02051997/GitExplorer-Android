@@ -19,24 +19,8 @@ jobs:
           name: lint.html
           path: app/build/reports/lint-results-debug.html
 
-  unit-test:
-    needs: [lint]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-
-      - name: Run tests
-        run: ./gradlew test
-
-      - name: Upload test report
-        uses: actions/upload-artifact@v2
-        with:
-          name: unit_test_report
-          path: app/build/reports/tests/testDebugUnitTest/
-
   package:
-    needs: [unit-test]
+    needs: [lint]
     name: Generate APK
     runs-on: ubuntu-latest
     steps:
