@@ -38,6 +38,9 @@ The app in itself is a simple git commands searching app. Selecting command from
 
 <img src="https://github.com/Shashank02051997/GitExplorer-Android/assets/20399094/9240f17a-509a-48ed-8d3f-04b37274d995" height="600" width="300" hspace="40"><img src="https://github.com/Shashank02051997/GitExplorer-Android/assets/20399094/4e1b643a-7867-4b04-8b70-444d17f25610" height="600" width="300" hspace="40">
 
+## Prerequisites 📝
+- IntelliJ IDEA (any edition) or Android Studio(IDE) to run this project
+
 ## Inspiration
 
 This project is inspired from GitExplorer ~ Thanks to them.
@@ -67,6 +70,10 @@ If this project help you reduce time to develop, you can give me a cup of coffee
 
 <a href="https://www.buymeacoffee.com/mXUuDW7" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
+## 💬 Discuss
+
+Have any questions, doubts or want to present your opinions, views? You're always welcome. You can [start discussions](https://github.com/Shashank02051997/GitExplorer-Android/discussions).
+
 ## License
 
 ```
@@ -91,3 +98,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.```
+
+
+## Visitors Count
+
+<img align="left" src = "https://profile-counter.glitch.me/AnywhereGPT-Android/count.svg" alt ="Loading">
