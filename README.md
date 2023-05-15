@@ -10,7 +10,7 @@
 
 [![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![platform](https://img.shields.io/badge/platform-Android-yellow.svg)](https://www.android.com)
-[![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=plastic)](https://android-arsenal.com/api?level=21)
+[![API](https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=plastic)](https://android-arsenal.com/api?level=23)
 <a href="https://www.linkedin.com/in/shashank-singhal-a87729b5/">
     <img src="https://img.shields.io/badge/Support-Recommed%2FEndorse%20me%20on%20Linkedin-yellow?style=for-the-badge&logo=linkedin" alt="Recommend me on LinkedIn" /></a>
 
@@ -34,9 +34,9 @@ The app in itself is a simple git commands searching app. Selecting command from
 
 **Please click the image below to enlarge.**
 
-<img src="https://github.com/Shashank02051997/GitExplorer-Android/blob/master/Screenshots/Screenshot_20200619-010940.png" height="600" width="300" hspace="40"><img src="https://github.com/Shashank02051997/GitExplorer-Android/blob/master/Screenshots/Screenshot_20200619-010954.png" height="600" width="300" hspace="40">
+<img src="https://github.com/Shashank02051997/GitExplorer-Android/assets/20399094/749fd523-53f7-4862-8b09-5b4743b65ea2" height="600" width="300" hspace="40"><img src="https://github.com/Shashank02051997/GitExplorer-Android/assets/20399094/353408b1-fa7f-4f45-90f0-804edeb7ef96" height="600" width="300" hspace="40">
 
-<img src="https://github.com/Shashank02051997/GitExplorer-Android/blob/master/Screenshots/Screenshot_20200619-011005.png" height="600" width="300" hspace="40"><img src="https://github.com/Shashank02051997/GitExplorer-Android/blob/master/Screenshots/Screenshot_20200619-011028.png" height="600" width="300" hspace="40">
+<img src="https://github.com/Shashank02051997/GitExplorer-Android/assets/20399094/9240f17a-509a-48ed-8d3f-04b37274d995" height="600" width="300" hspace="40"><img src="https://github.com/Shashank02051997/GitExplorer-Android/assets/20399094/4e1b643a-7867-4b04-8b70-444d17f25610" height="600" width="300" hspace="40">
 
 ## Inspiration
 
@@ -72,7 +72,7 @@ If this project help you reduce time to develop, you can give me a cup of coffee
 ```
 MIT License
 
-Copyright (c) 2020 Shashank Singhal
+Copyright (c) 2023 Shashank Singhal
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
